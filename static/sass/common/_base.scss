@@ -1,0 +1,62 @@
+
+@charset "UTF-8";
+
+:root{
+	font-size: 10 / 16 * 1000%;
+}
+
+html{
+	height: 100%;
+	font-family: "Microsoft YaHei", "Helvetical";
+}
+
+body{
+	background-color: #efefef;
+	font-size: 14px;
+	height: 100%;
+	min-height: 100vh;
+}
+
+h1,h2,h3,h4,h5,
+dl,dt,dd,
+p,
+figure{
+	margin: 0;
+}
+
+ul,ol,li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+input,textarea{
+  font-family: inherit;
+  font-size: 100%;
+  width: inherit;
+	box-sizing: border-box;
+	margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none 0;
+  vertical-align: baseline;
+  font-weight: 500;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+*,
+*:before,*:after{
+	box-sizing: border-box;
+}
+
+.cf{ zoom: 1; }
+.cf:before,
+.cf:after{
+	content: "";
+	display: table;
+}
+.cf:after{
+	clear: both;
+	overflow: hidden;
+}

@@ -1,0 +1,11 @@
+
+.Sultan-flag{
+
+	$color_height: 1 / 3 * 100% !default;
+
+	background: 
+	 	linear-gradient(27deg, #007B00 50%, transparent 50%) 0 0 / 50% 50% no-repeat,
+	 	linear-gradient(153deg, #007B00 50%, transparent 50%)  0 bottom / 50% 50% no-repeat,
+	 	linear-gradient(0, #000000 $color_height, #ffffff $color_height, #ffffff $color_height * 2 , #C60000 $color_height),
+		transparent;
+}

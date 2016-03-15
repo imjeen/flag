@@ -1,0 +1,32 @@
+
+.grid{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0 auto;
+
+	&.grid--no-spacing{
+		padding: 0;
+	}
+
+	&.grid--between{
+		justify-content: space-between;
+	}
+
+	&.grid--around{
+		justify-content: space-around;
+	}
+
+	&.grid--center{
+		justify-content: center;
+	}
+
+}
+
+@for $i from 1 through 12{
+
+	.cell--#{$i}-col{
+		width: $i / 12 * 100%;
+	}
+
+}

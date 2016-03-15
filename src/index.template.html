@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>react</title>
+	<!-- result style -->
+	<% for(var i=0; i < htmlWebpackPlugin.files.css.length; ++i){ %>
+	<link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[i] %>?v=<%=(new Date()).getTime()%>">
+	<% } %>
+	
+</head>
+<body>
+	<div id="mainApp" class="jumbotron-main"></div>
+	<!-- result script -->
+	<% for(var i=0; i < htmlWebpackPlugin.files.js.length; ++i){ %>
+	<script src="<%= htmlWebpackPlugin.files.js[i] %>?v=<%= (new Date()).getTime() %>"></script>
+	<% } %>
+</body>
+</html>

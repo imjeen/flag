@@ -1,0 +1,12 @@
+
+.Georgia-flag{
+
+	$color_height: 45 / 100 * 100%;
+
+	background: 
+	  linear-gradient(0deg, #FF0000 $color_height, transparent 0) center top #{ 50% - $color_height / 2 } / 100% $color_height no-repeat,
+	 // linear-gradient(-90deg, #FF0000 #{$color_height / 2}, transparent 0) left #{ 50% - $color_height / 2 } center / $color_height 100% no-repeat,
+	  linear-gradient(-90deg, transparent $color_height,  #FF0000 $color_height, #FF0000 $color_height, transparent #{50% - $color_height}),
+
+		transparent;
+}
