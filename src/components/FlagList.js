@@ -6,13 +6,15 @@ import FlagItem from "../components/FlagItem"
 class FlagList extends Component {
 
 	render(){
-		return (<ul className={"flag-list grid grid--center"}>
-			{
-				this.props.flags.map( (item,key) => 
-					<FlagItem {...item} key={key} className={'cell--5-col'} /> 
-				)
-			}
-		</ul>);
+		return (<main>
+			<ul className={"flag-list grid grid--center"}>
+				{
+					this.props.flags.map( (item,key) => 
+						<FlagItem {...item} key={key} className={'cell--3-col'} /> 
+					)
+				}
+			</ul>
+		</main>);
 	}
 
 }

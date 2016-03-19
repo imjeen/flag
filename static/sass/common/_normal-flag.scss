@@ -1,17 +1,24 @@
 
 .jumbotron-main{
-	max-width: 9.60rem;
-	margin: 0 auto;
+	/*max-width: 9.60rem;
+	margin: 0 auto;*/
 }
 
 .flag-list{
-	padding: 0.10rem 0;
+	/*padding: 0.10rem 0;*/
 
 	.flag-item{
-		text-align: center;
-		margin: 0.10rem;
-		background-color: #fff;
-		box-shadow: 0 1px 1px 1px #ddd;
+		
+		padding: 0.10rem;
+		
+		.flag-inner{
+			
+			text-align: center;
+			background-color: #fff;
+			box-shadow: 0 1px 1px 1px #ddd;
+
+		}
+
 	}
 
 	h2{

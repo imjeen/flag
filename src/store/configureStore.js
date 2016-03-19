@@ -1,7 +1,7 @@
 
 import { createStore } from "redux"
 
-import {addFlg, editFlag, deleteFlag} from "../actions/flag"
+// import {addFlg, editFlag, deleteFlag} from "../actions"
 import rootReducer from "../reducers/"
 
 

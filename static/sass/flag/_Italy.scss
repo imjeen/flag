@@ -1,0 +1,10 @@
+
+.Italy-flag{
+
+	$color_height: 1 / 3 * 100%;
+	
+	background: 
+		linear-gradient(-90deg, #FF0000 $color_height, #FFFFFF $color_height, #FFFFFF $color_height * 2, #008000 $color_height),
+		transparent;
+
+}

@@ -61,7 +61,7 @@ module.exports = {
 		extensions: ['', '.js'],
 		alias: {
 			"react": 				__dirname + "/node_modules/react/react.js",
-			"react-dom": 		__dirname + "/node_modules/react-dom/index.js",
+			"react-dom": 		__dirname + "/node_modules/react/lib/ReactDOM.js",
 			"react-router": __dirname + "/node_modules/react-router/lib/index.js",
 			"redux": 				__dirname + "/node_modules/redux/lib/index.js",
 			"react-redux":  __dirname + "/node_modules/react-redux/lib/index.js",

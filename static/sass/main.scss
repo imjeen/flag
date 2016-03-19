@@ -6,15 +6,36 @@
 @import "vendor/normalize.css";
 
 @import "common/base";
+@import "common/global";
 @import "common/normal-flag";
 
+/* --------------------- */
+// Asia
 @import "flag/China";
 @import "flag/Japan";
-@import "flag/America";
+@import "flag/Laos";
+@import "flag/Yemen";
+
+// Europe
+@import "flag/Russia";
+@import "flag/Italy";
+@import "flag/Greenland";
 @import "flag/Britain";
 @import "flag/Ukraine";
-@import "flag/Yemen";
-@import "flag/Laos";
+
+// Africa
+
+
+// North America
+@import "flag/America";
+
+// South America
+
+/* --------------------- */
+
 @import "flag/Sultan";
 @import "flag/Qatar";
 @import "flag/Georgia";
+@import "flag/SierraLeone";
+@import "flag/Palau";
+

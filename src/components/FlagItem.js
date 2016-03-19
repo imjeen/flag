@@ -6,8 +6,10 @@ class FlagItem extends Component {
 	render(){
 
 		return (<li className={"flag-item "  + this.props.className }>
-			<figure className={this.props.name + "-flag figure-flag"}>{this.props.name + " flag"}</figure>
-			<h2>{this.props.name}</h2>
+			<div className="flag-inner">
+				<figure className={this.props.name + "-flag figure-flag"}>{this.props.name + " flag"}</figure>
+				<h2>{this.props.name}</h2>
+			</div>
 		</li>)
 		
 	}
