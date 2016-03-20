@@ -1,11 +1,12 @@
 
 import {	ADD_FLAG, EDIT_FLAG, DELETE_FLAG } from "../actions"
-// import { SearchTypes } from "../constants/SearchTypes"
+import { SET_SEARCH_NAME_VALUE } from "../constants/SearchTypes"
 import { TAB_ALL, SET_TAB_TYPE} from "../constants/TabTypes"
 
 // the state shap and initialSate
 const initialSate = {
 	tabType: TAB_ALL,
+	searchNameValue: "",
 	flags: [
 		{ id: 0,  name: "Japan", 	chineseName: "日本",	continent: "TAB_ASIA" },
 		{ id: 1,  name: "Yemen", 	chineseName: "也门",	continent: "TAB_ASIA"  },
@@ -28,7 +29,15 @@ const initialSate = {
 export default function flagData(state = initialSate, action){
 	switch(action.type){
 		case SET_TAB_TYPE:
-			return Object.assign({}, state, { tabType: action.tab })
+			return Object.assign({}, state, { 
+				tabType: action.tab, 
+				searchNameValue: '' 
+			})
+		case SET_SEARCH_NAME_VALUE:
+			return Object.assign({}, state, { 
+				tabType: '', //or TAB_ALL,
+				searchNameValue: action.nameValue 
+			})
 		case ADD_FLAG:
 			return Object.assign({}, state, { 
 				flags: [

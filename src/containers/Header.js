@@ -1,17 +1,19 @@
 
 import { connect } from "react-redux"
-import { PublicHeader } from "../component/PublicHeader"
+import PublicHeader from "../components/PublicHeader"
+
+import { setSearchNameValue } from "../actions/searchCreators"
 
 const mapStateToProps = (state)=>{
 	return {
-		searchText: state.searchValue
+		searchText: state.flagData.searchNameValue || ''
 	}
 }
 
 const mapDispatchToProps = (dispatch)=>{
 	return {
-		doSearch: (text){
-			dispatch()
+		doSearch: (text)=>{
+			dispatch(setSearchNameValue(text))
 		}
 	}
 }
