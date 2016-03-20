@@ -4,9 +4,9 @@ import React, {Component, PropTypes} from "react"
 import { bindActionCreators } from 'redux'
 import { connect } from "react-redux"
 
-import FlagList from "../components/FlagList"
 import PublicHeader from "../components/PublicHeader"
-import PublicNav from "../components/PublicNav"
+import Nav from "../containers/Nav"
+import Main from "../containers/Main"
 import PublicFooter from "../components/PublicFooter"
 
 import * as allActionCreators from "../actions"
@@ -14,11 +14,11 @@ import * as allActionCreators from "../actions"
 class App extends Component{
 
 	render(){
-		return (<div>
+		return (<div className="jumbotron-main">
 			<PublicHeader onSearch={this.props.doSearchByName} />
-			<PublicNav />
-			<FlagList flags={this.props.flags} />
-			<PublicFooter></PublicFooter>
+			<Nav />
+			<Main />
+			<PublicFooter />
 		</div>)
 	}
 
@@ -26,7 +26,7 @@ class App extends Component{
 
 function mapStateToProps(state){
 	return {
-		flags: state.flagApp.flags
+		flags: state.flagData.flags
 	}
 }
 

@@ -10,7 +10,7 @@
 	
 </head>
 <body>
-	<div id="mainApp" class="jumbotron-main"></div>
+	<div id="mainApp"></div>
 	<!-- result script -->
 	<% for(var i=0; i < htmlWebpackPlugin.files.js.length; ++i){ %>
 	<script src="<%= htmlWebpackPlugin.files.js[i] %>?v=<%= (new Date()).getTime() %>"></script>

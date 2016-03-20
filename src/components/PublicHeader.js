@@ -39,7 +39,7 @@ class PublicHeader extends Component{
 }
 
 PublicHeader.propTypes = {
-	onSearch: PropTypes.func.isRequired,
+	onSearch: PropTypes.func,
 	searchText: PropTypes.string 
 }
 

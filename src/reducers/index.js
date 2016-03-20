@@ -1,10 +1,10 @@
 
 import { combineReducers } from "redux"
 
-import flagApp from "../reducers/flags"
+import flagData from "../reducers/flagData"
 
 const rootReducer = combineReducers({
-	flagApp
+	flagData
 })
 
 export default rootReducer
