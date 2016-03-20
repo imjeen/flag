@@ -1,18 +1,18 @@
 
 import {connect} from "react-redux"
-import { setSearchType } from "../actions"
+import { setTabType } from "../actions/tabCreators"
 import PublicNav from "../components/PublicNav"
 
 const mapStateToProps = (state) => {
   return {
-    searchType: state.flagData.searchType
+    tabType: state.flagData.tabType
   }
 }
 
 const mapDispatchToProps  =  (dispatch) => {
 	return {
 		onShowByType: (filter) => {
-			dispatch(setSearchType(filter))
+			dispatch(setTabType(filter))
 		}
 	}
 }

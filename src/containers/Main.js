@@ -3,18 +3,18 @@ import {connect} from "react-redux"
 import FlagList from "../components/FlagList"
 
 
-const getFilterCollect = (flags, filter)=>{
-	switch(filter){
-		case 'ALL':
+const getTabCollect = (flags, tabType)=>{
+	switch(tabType){
+		case 'TAB_ALL':
 			return flags
-		case filter:
-			return flags.filter( (flag) => flag.continent === filter )
+		case tabType:
+			return flags.filter( (flag) => flag.continent === tabType )
 	}
 }
 
 const mapStatetoProps = (state) => {
 	return {
-		flags: getFilterCollect(state.flagData.flags, state.flagData.searchType)
+		flags: getTabCollect(state.flagData.flags, state.flagData.tabType)
 	}
 }
 

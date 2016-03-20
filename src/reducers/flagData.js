@@ -1,33 +1,34 @@
 
 import {	ADD_FLAG, EDIT_FLAG, DELETE_FLAG } from "../actions"
-import { SET_SEARCH_TYPE, SearchTypes } from "../constants/SearchTypes"
+// import { SearchTypes } from "../constants/SearchTypes"
+import { TAB_ALL, SET_TAB_TYPE} from "../constants/TabTypes"
 
 // the state shap and initialSate
 const initialSate = {
-	searchType: SearchTypes.ALL,
+	tabType: TAB_ALL,
 	flags: [
-		{ id: 0,  name: "Japan", 	chineseName: "日本",	continent: "ASIA" },
-		{ id: 1,  name: "Yemen", 	chineseName: "也门",	continent: "ASIA"  },
-		{ id: 2,  name: "China", 	chineseName: "中国",	 continent: "ASIA" },
-		{ id: 3,  name: "America", chineseName: "美国",	 continent: "AMERICA" },
-		{ id: 4,  name: "Britain", chineseName: "英国",	 continent: "EUROPE" },
-		{ id: 5,  name: "Ukraine", chineseName: "乌克兰",	continent: "EUROPE" },
-		{ id: 6,  name: "Laos", 	chineseName: "老挝",	 continent: "ASIA" },
-		{ id: 7,  name: "Sultan", chineseName: "苏丹",	 continent: "AFRICA" },
-		{ id: 8,  name: "Qatar", 	chineseName: "卡塔尔",	 continent: "ASIA" },
-		{ id: 9,  name: "Georgia", chineseName: "格鲁吉亚（前苏联加盟共和国）",	 continent: "ASIA" },
-		{ id: 10, name: "SierraLeone", chineseName: "塞拉利昂",	 continent: "AFRICA" },
-		{ id: 11, name: "Russia", chineseName: "俄罗斯",	 continent: "EUROPE" },
-		{ id: 12, name: "Italy", 	chineseName: "意大利",	 continent: "EUROPE" },
-		{ id: 13, name: "Greenland",chineseName: "格陵兰",	 continent: "AMERICA" },
-		{ id: 14, name: "Palau", 	chineseName: "帕劳",	 continent: "EUROPE" },
+		{ id: 0,  name: "Japan", 	chineseName: "日本",	continent: "TAB_ASIA" },
+		{ id: 1,  name: "Yemen", 	chineseName: "也门",	continent: "TAB_ASIA"  },
+		{ id: 2,  name: "China", 	chineseName: "中国",	 continent: "TAB_ASIA" },
+		{ id: 3,  name: "America", chineseName: "美国",	 continent: "TAB_AMERICA" },
+		{ id: 4,  name: "Britain", chineseName: "英国",	 continent: "TAB_EUROPE" },
+		{ id: 5,  name: "Ukraine", chineseName: "乌克兰",	continent: "TAB_EUROPE" },
+		{ id: 6,  name: "Laos", 	chineseName: "老挝",	 continent: "TAB_ASIA" },
+		{ id: 7,  name: "Sultan", chineseName: "苏丹",	 continent: "TAB_AFRICA" },
+		{ id: 8,  name: "Qatar", 	chineseName: "卡塔尔",	 continent: "TAB_ASIA" },
+		{ id: 9,  name: "Georgia", chineseName: "格鲁吉亚（前苏联加盟共和国）",	 continent: "TAB_ASIA" },
+		{ id: 10, name: "SierraLeone", chineseName: "塞拉利昂",	 continent: "TAB_AFRICA" },
+		{ id: 11, name: "Russia", chineseName: "俄罗斯",	 continent: "TAB_EUROPE" },
+		{ id: 12, name: "Italy", 	chineseName: "意大利",	 continent: "TAB_EUROPE" },
+		{ id: 13, name: "Greenland",chineseName: "格陵兰",	 continent: "TAB_AMERICA" },
+		{ id: 14, name: "Palau", 	chineseName: "帕劳",	 continent: "TAB_EUROPE" },
 	]
 }
 
-export default function flagApp(state = initialSate, action){
+export default function flagData(state = initialSate, action){
 	switch(action.type){
-		case SET_SEARCH_TYPE:
-			return Object.assign({}, state, { searchType: action.filter })
+		case SET_TAB_TYPE:
+			return Object.assign({}, state, { tabType: action.tab })
 		case ADD_FLAG:
 			return Object.assign({}, state, { 
 				flags: [

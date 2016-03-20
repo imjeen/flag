@@ -15,6 +15,3 @@ export function deleteFlag(id){
 	return { type: types.DELETE_FLAG, id }
 }
 
-export function setSearchType(filter){
-	return { type: SET_SEARCH_TYPE, filter }
-}

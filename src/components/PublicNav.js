@@ -9,22 +9,22 @@ class PublicNav extends Component{
 			<div className="global-container">
 				<ul className="nav-list">
 					<li className="nav-item">
-						<a className={this.props.searchType ==="ALL" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'ALL')}>全部</a>
+						<a className={this.props.tabType === "TAB_ALL" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'TAB_ALL')}>全部</a>
 					</li>
 					<li className="nav-item">
-						<a className={this.props.searchType ==="EUROPE" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'EUROPE')}>欧洲</a>
+						<a className={this.props.tabType === "TAB_EUROPE" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'TAB_EUROPE')}>欧洲</a>
 					</li>
 					<li className="nav-item">
-						<a className={this.props.searchType ==="ASIA" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'ASIA')}>亚洲</a>
+						<a className={this.props.tabType === "TAB_ASIA" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'TAB_ASIA')}>亚洲</a>
 					</li>
 					<li className="nav-item">
-						<a className={this.props.searchType ==="AMERICA" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'AMERICA')}>美洲</a>
+						<a className={this.props.tabType === "TAB_AMERICA" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'TAB_AMERICA')}>美洲</a>
 					</li>
 					<li className="nav-item">
-						<a className={this.props.searchType ==="AFRICA" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'AFRICA')}>非洲</a>
+						<a className={this.props.tabType === "TAB_AFRICA" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'TAB_AFRICA')}>非洲</a>
 					</li>
 					<li className="nav-item">
-						<a className={this.props.searchType ==="OCEANIA" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'OCEANIA')}>大洋洲</a>
+						<a className={this.props.tabType === "TAB_OCEANIA" ? "nav-link on" : "nav-link"} onClick={this.props.onShowByType.bind(this,'TAB_OCEANIA')}>大洋洲</a>
 					</li>
 				</ul>
 			</div>
@@ -34,7 +34,7 @@ class PublicNav extends Component{
 }
 
 PublicNav.propTypes = {
-	searchType:  PropTypes.string.isRequired,
+	tabType:  PropTypes.string.isRequired,
 	onShowByType: PropTypes.func.isRequired
 }
 

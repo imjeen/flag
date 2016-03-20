@@ -15,7 +15,7 @@ class App extends Component{
 
 	render(){
 		return (<div className="jumbotron-main">
-			<PublicHeader onSearch={this.props.doSearchByName} />
+			<PublicHeader doSearch={this.props.doSearchByName} />
 			<Nav />
 			<Main />
 			<PublicFooter />
