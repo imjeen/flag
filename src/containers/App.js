@@ -1,21 +1,36 @@
 
-
 import React, {Component, PropTypes} from "react"
-import { bindActionCreators } from 'redux'
+// import { bindActionCreators } from 'redux'
 import { connect } from "react-redux"
 
-import PublicHeader from "../components/PublicHeader"
+import Header from "../containers/Header"
 import Nav from "../containers/Nav"
 import Main from "../containers/Main"
 import PublicFooter from "../components/PublicFooter"
 
-import * as allActionCreators from "../actions"
+// TODO
+const globalEventEmitter = {
+	_events: {},
+	dispatch: (event,data) => {
+		if(!this._events[event]){ return;}
+		this._events[event].forEach( (fn) => { fn(data) })
+	},
+	subscribe: (event,callback) => {
+		if(!this._events[event]){ this._events = []; }
+		this._events[event].push(callback)
+	},
+	unsubscribe: (event) => {
+		if(this._events && this._events[event]){
+			delete this._events[event]
+		}
+	}
+}
 
 class App extends Component{
 
 	render(){
 		return (<div className="jumbotron-main">
-			<PublicHeader doSearch={this.props.doSearchByName} />
+			<Header />
 			<Nav />
 			<Main />
 			<PublicFooter />
@@ -24,19 +39,4 @@ class App extends Component{
 
 }
 
-function mapStateToProps(state){
-	return {
-		flags: state.flagData.flags
-	}
-}
-
-function mapDispatchToProps(dispatch){
-	return {
-		actions: bindActionCreators(allActionCreators, dispatch)
-	}
-}
-
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(App)
+export default connect()(App)
