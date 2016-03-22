@@ -1,4 +1,0 @@
-
-export const SET_SEARCH_NAME_VALUE = "SET_SEARCH_NAME_VALUE"
-
-// export SEARCH_NAME = "SEARCH_NAME"
