@@ -6,7 +6,7 @@ import FlagItem from "../components/FlagItem"
 class FlagList extends Component {
 
 	render(){
-		return (<main>
+		return (<main className="main-body">
 			{(function(value){
 				if(value !== ''){
 					return <p style={{'textAlign':'center'}}> you're searching: <strong>{value}</strong></p>
@@ -15,7 +15,7 @@ class FlagList extends Component {
 			<ul className={"flag-list grid grid--center"}>
 				{
 					this.props.flags.map( (item,key) => 
-						<FlagItem {...item} key={key} className={'cell--3-col'} /> 
+						<FlagItem {...item} key={key} className={'cell--3-col cell--4-col-phone cell--4-col-tablet'} /> 
 					)
 				}
 			</ul>

@@ -9,24 +9,72 @@
 		padding: 0;
 	}
 
-	&.grid--between{
-		justify-content: space-between;
-	}
-
-	&.grid--around{
-		justify-content: space-around;
-	}
-
-	&.grid--center{
+	&--center{
 		justify-content: center;
 	}
 
 }
 
-@for $i from 1 through 12{
+.cell{
 
-	.cell--#{$i}-col{
-		width: $i / 12 * 100%;
+	box-sizing: border-box;
+
+	&--top{
+		align-self: flex-start;
+	}
+
+	&--middle{
+		align-self: center;
+	}
+
+	&--bottom{
+		align-self: flex-end;
+	}
+
+	&--stretch{
+		align-self: stretch;
 	}
 
 }
+
+
+// Phone
+
+@media (max-width: $grid-tablet-breakpoint - 1) {
+	
+	@for $i from 1 through($grid-phone-columns ){
+		.cell--#{$i}-col,
+		.cell--#{$i}-col-phone.cell--#{$i}-col-phone{
+			width: $i / $grid-phone-columns * 100%;
+		}
+	}
+
+}
+
+// Tablet
+
+@media (min-width: $grid-tablet-breakpoint) and (max-width: $grid-desktop-breakpoint - 1) {
+	
+	@for $i from 1 through($grid-tablet-columns ){
+		.cell--#{$i}-col,
+		.cell--#{$i}-col-tablet.cell--#{$i}-col-tablet{
+			width: $i / $grid-tablet-columns * 100%;
+		}
+	}
+
+}
+
+// Desktop
+
+@media (min-width: $grid-desktop-breakpoint) {
+
+	@for $i from 1 through($grid-desktop-columns ){
+		.cell--#{$i}-col,
+		.cell--#{$i}-col-desktop.cell--#{$i}-col-desktop{
+			width: $i / $grid-desktop-columns * 100%;
+		}
+	}
+
+}
+
+

@@ -1,6 +1,6 @@
 
 
-.jumbotron-main{
+.jumbotron{
 	min-height: 100vh;
 	padding-bottom: 50px;
 	position: relative;
@@ -21,8 +21,18 @@
   padding-left: 0.15rem;
   padding-right: 0.15rem;
 
-	/*width: 9.60rem;*/
+	@media (max-width: $grid-tablet-breakpoint - 1) {
+		padding-left: 0.05rem;
+  	padding-right: 0.05rem;
+	}
 
+}
+
+//---------------------------------
+
+.main-body{
+	max-width: 960px;
+	margin: auto;
 }
 
 //---------------------------------
@@ -41,15 +51,22 @@
 
 		.nav-item{
 			display: inline-block;
-			margin-left: 0.05rem;
 		}
 
 		.nav-link{
 			display: inline-block;
+			margin-left: 0.05rem;
 			padding: 0.10rem 0.20rem;
 			text-decoration: none;
 			color: inherit;
 			cursor: pointer;
+
+			@media (max-width: $grid-tablet-breakpoint - 1) {
+
+					margin-left: 0;
+					padding: 0.10rem 0.10rem;
+				
+			}
 
 			&:hover{ background-color: rgba(27, 100, 53, 0.7); }
 			&.on{ background-color: rgba(175, 206, 0, 0.8); }
@@ -58,9 +75,10 @@
 
 	}
 
-	
-
 }
+
+
+
 
 
 //---------------------------------
@@ -84,14 +102,19 @@
 	// search
 	.header-search{
 		width: 100%;
-		max-width: 4.00rem;
-		min-width: 4.00rem;
+		max-width: 8.00rem;
+		min-width: 5.00rem;
 		margin: 0.20rem auto 0.30rem;
-		/*margin: 0.10rem 0.20rem 0 0;*/
 		position: relative;
 
+		@media (max-width: $grid-tablet-breakpoint - 1) {
+
+			min-width: 3.00rem;
+				
+		}
+
 		.form-field{
-			padding-right: 0.80rem;
+			padding-right: 0.36rem;
 			padding-left: 0.08rem;
 			min-height: 0.36rem;
 			background-color: #f3f3f3;

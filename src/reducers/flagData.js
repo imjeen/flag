@@ -4,7 +4,7 @@ import { SET_SEARCH_NAME_VALUE } from "../constants/SearchTypes"
 import { TAB_ALL, SET_TAB_TYPE} from "../constants/TabTypes"
 
 // the state shap and initialSate
-const initialSate = {
+const initialState = {
 	tabType: TAB_ALL,
 	searchNameValue: "",
 	flags: [
@@ -26,7 +26,7 @@ const initialSate = {
 	]
 }
 
-export default function flagData(state = initialSate, action){
+export default function flagData(state = initialState, action){
 	switch(action.type){
 		case SET_TAB_TYPE:
 			return Object.assign({}, state, { 

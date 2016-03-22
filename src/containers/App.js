@@ -29,7 +29,7 @@ window.globalEventEmitter = {
 class App extends Component{
 
 	render(){
-		return (<div className="jumbotron-main">
+		return (<div className="jumbotron">
 			<Header />
 			<Nav />
 			<Main />
