@@ -1,0 +1,14 @@
+
+.Mali-flag{
+
+	$color_height: 1 / 3 * 100%;
+
+	background: 
+		linear-gradient(to right,
+			#00B500 0, #00B500 $color_height,
+			#FFFF00 $color_height, #FFFF00 $color_height * 2,
+			#C60000 $color_height * 2, #C60000 $color_height * 3
+		),
+		transparent;
+
+}

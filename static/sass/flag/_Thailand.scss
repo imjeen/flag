@@ -1,0 +1,16 @@
+
+.Thailand-flag{
+	
+	$color_height: 1 / 6 * 100% !default;
+
+	background:
+		linear-gradient(to bottom, 
+			#C60000, #C60000 $color_height, 
+			#F7F7F7 $color_height, #F7F7F7 $color_height * 2,
+			#0800B5 $color_height * 2, #0800B5 $color_height * 4,
+			#F7F7F7 $color_height * 4, #F7F7F7 $color_height * 5,
+			#C60000 $color_height * 5, #C60000 $color_height * 6
+		),
+		transparent;
+
+}

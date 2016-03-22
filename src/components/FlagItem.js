@@ -8,7 +8,7 @@ class FlagItem extends Component {
 		return (<li className={"flag-item "  + this.props.className }>
 			<div className="flag-inner">
 				<figure className={this.props.name + "-flag figure-flag"}>{this.props.name + " flag"}</figure>
-				<h2>{this.props.name}</h2>
+				<h2>{this.props.name} - {this.props.chineseName}</h2>
 			</div>
 		</li>)
 		
