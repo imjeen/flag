@@ -7,6 +7,11 @@ class FlagList extends Component {
 
 	render(){
 		return (<main>
+			{(function(value){
+				if(value !== ''){
+					return <p style={{'textAlign':'center'}}> you're searching: <strong>{value}</strong></p>
+				}
+			}(this.props.searchValue))}
 			<ul className={"flag-list grid grid--center"}>
 				{
 					this.props.flags.map( (item,key) => 
@@ -20,7 +25,8 @@ class FlagList extends Component {
 }
 
 FlagList.propTypes = {
-	flags: PropTypes.array.isRequired
+	flags: PropTypes.array.isRequired,
+	searchValue: PropTypes.string
 }
 
 export default FlagList

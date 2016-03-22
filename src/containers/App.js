@@ -9,17 +9,17 @@ import Main from "../containers/Main"
 import PublicFooter from "../components/PublicFooter"
 
 // TODO
-const globalEventEmitter = {
+window.globalEventEmitter = {
 	_events: {},
-	dispatch: (event,data) => {
+	dispatch: function(event,data) {
 		if(!this._events[event]){ return;}
 		this._events[event].forEach( (fn) => { fn(data) })
 	},
-	subscribe: (event,callback) => {
-		if(!this._events[event]){ this._events = []; }
+	subscribe: function(event,callback) {
+		if(!this._events[event]){ this._events[event] = []; }
 		this._events[event].push(callback)
 	},
-	unsubscribe: (event) => {
+	unsubscribe: function(event) {
 		if(this._events && this._events[event]){
 			delete this._events[event]
 		}

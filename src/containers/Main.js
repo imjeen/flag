@@ -23,7 +23,8 @@ const getResult = (data) => {
 
 const mapStatetoProps = (state) => {
 	return {
-		flags: getResult(state.flagData)
+		flags: getResult(state.flagData),
+		searchValue: state.flagData.searchNameValue
 	}
 }
 
