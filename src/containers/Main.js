@@ -11,8 +11,27 @@ const getTabCollect = (flags, tabType)=>{
 	}
 }
 
-const getSearchResult = (flags, name) =>{
-	return flags.filter( (flag) => flag.name === name )
+const getSearchResult = (flags, searchValue) =>{
+
+	searchValue = searchValue.trim()
+
+	let _value = [], reg = new RegExp('\^' + searchValue,'i')
+	
+	let equalValue = flags.filter((flag) => {
+
+		// if chinese character
+		var originValue = /^[\u4e00-\u9fa5]{0,}$/g.test(searchValue) ? flag.chineseName : flag.name
+
+		if(originValue !== searchValue && reg.test(originValue)){ 
+			_value.push(flag) 
+		}
+
+		return originValue === searchValue
+
+	})
+
+	return equalValue.concat(_value)
+
 }
 
 const getResult = (data) => {

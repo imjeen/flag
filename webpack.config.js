@@ -3,15 +3,18 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+var autoprefixer = require('autoprefixer');
+var precss       = require('precss');
 
-	devtool: 'source-map',
+var releasePath = "./release/" // http://imjeen.github.io/flag/release/";
+
+module.exports = {
 
 	entry: { main: "./src/main.js"},
 
 	output: {
-		path: __dirname + "/build/",
-		publicPath: './build/',
+		publicPath: process.env.NODE_ENV === 'production' ? releasePath : "./build/",
+    path: __dirname + (process.env.NODE_ENV === 'production' ? "/release/" : "/build/"),
 		filename: "[name].js"
 	},
 
@@ -29,32 +32,21 @@ module.exports = {
 	      }
 	    },
 
-	    {
-	    	test: /\.scss/,
-	    	loader: ExtractTextPlugin.extract("style-loader","css-loader?sourceMap!sass-loader?sourceMap"),
-	    },
-
-	    {
-	    	test: /\.json/,
-	    	loader: "json",
-	    },
+	    // {
+	    // 	test: /\.json/,
+	    // 	loader: "json",
+	    // },
 
     ]
   },
 
+  postcss: function () {
+    return [autoprefixer, precss];
+  },
+
 	plugins: [
 		new ExtractTextPlugin("[name].css",{ allChunks: true }),
-    new HtmlWebpackPlugin({
-    	title: "react",
-      filename: '../index.html',
-      template: './src/index.template.html',
-      inject: false,
-      minify: {
-      	removeComments: true,
-      	// collapseWhitespace: true,
-      	removeTagWhitespace: true,
-      },
-    })
+		// new webpack.optimize.CommonsChunkPlugin('common.js'),
   ],
 
 	resolve: {
@@ -69,3 +61,61 @@ module.exports = {
 	},
 
 };
+
+if(process.env.NODE_ENV === 'production'){
+
+	console.log('\n production is processing!\n');
+
+   module.exports.plugins 
+    && module.exports.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: '"production"'
+        }
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      }),
+      new webpack.optimize.OccurenceOrderPlugin(),
+      new HtmlWebpackPlugin({
+        filename: '../index.html',
+        template: './src/index.template.html',
+        inject: false,
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+          minifyJS: true,
+          minifyCSS: true,
+        },
+      })
+    );
+
+   module.exports.module.loaders 
+    && module.exports.module.loaders.push(
+        { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader","css-loader!postcss-loader") },
+        { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader","css-loader!postcss-loader!sass-loader")  }
+    );
+
+}else{
+
+	module.exports.devtool = 'source-map';
+
+	module.exports.plugins 
+    && module.exports.plugins.push(
+	    new HtmlWebpackPlugin({
+	    	title: "react",
+	      filename: '../index.html',
+	      template: './src/index.template.html',
+	      inject: false
+	    })
+    );
+
+  module.exports.module.loaders 
+    && module.exports.module.loaders.push(
+        { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader","css-loader?sourceMap!postcss-loader") },
+        { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader","css-loader?sourceMap!postcss-loader!sass-loader?sourceMap")  }
+    );
+
+}

@@ -15,7 +15,7 @@ class FlagList extends Component {
 			<ul className={"flag-list grid grid--center"}>
 				{
 					this.props.flags.map( (item,key) => 
-						<FlagItem {...item} key={key} className={'cell--3-col cell--4-col-phone cell--4-col-tablet'} /> 
+						<FlagItem {...item} key={key} className={'cell--4-col cell--4-col-phone cell--4-col-tablet'} /> 
 					)
 				}
 			</ul>
