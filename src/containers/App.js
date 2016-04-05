@@ -5,7 +5,6 @@ import { connect } from "react-redux"
 
 import Header from "../containers/Header"
 import Nav from "../containers/Nav"
-import Main from "../containers/Main"
 import PublicFooter from "../components/PublicFooter"
 
 // TODO
@@ -32,7 +31,7 @@ class App extends Component{
 		return (<div className="jumbotron">
 			<Header />
 			<Nav />
-			<Main />
+			{this.props.children}
 			<PublicFooter />
 		</div>)
 	}

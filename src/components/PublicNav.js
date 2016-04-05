@@ -1,12 +1,12 @@
 
 import React, {Component, PropTypes } from "react"
-
+import { Link } from 'react-router'
 
 class PublicNav extends Component{
 
 	handleDelegateFromLink(e){
-		e.target.hasAttribute('data-type')
-			&& this.props.onShowByType(e.target.dataset.type)
+		e.target.nodeName === "A"
+			&& this.props.setTabType(e.target.dataset.type)
 	}
 
 	componentWillUpdate(nextPros,nextState){
@@ -19,22 +19,22 @@ class PublicNav extends Component{
 			<div className="global-container">
 				<ul className="nav-list" onClick={this.handleDelegateFromLink.bind(this)}>
 					<li className="nav-item">
-						<a data-type="TAB_ALL" className={this.props.tabType === "TAB_ALL" ? "nav-link on" : "nav-link"}>全部</a>
+						<Link to="/land/all" data-type="all" activeClassName="on"  className="nav-link">全部</Link>
 					</li>
 					<li className="nav-item">
-						<a data-type="TAB_EUROPE" className={this.props.tabType === "TAB_EUROPE" ? "nav-link on" : "nav-link"}>欧洲</a>
+						<Link to="/land/europe" data-type="europe" activeClassName="on"  className="nav-link">欧洲</Link>
 					</li>
 					<li className="nav-item">
-						<a  data-type="TAB_ASIA"className={this.props.tabType === "TAB_ASIA" ? "nav-link on" : "nav-link"}>亚洲</a>
+						<Link to="/land/asia" data-type="asia" activeClassName="on"  className="nav-link">亚洲</Link>
 					</li>
 					<li className="nav-item">
-						<a data-type="TAB_AMERICA" className={this.props.tabType === "TAB_AMERICA" ? "nav-link on" : "nav-link"}>美洲</a>
+						<Link to="/land/america" data-type="america" activeClassName="on"  className="nav-link">美洲</Link>
 					</li>
 					<li className="nav-item">
-						<a data-type="TAB_AFRICA" className={this.props.tabType === "TAB_AFRICA" ? "nav-link on" : "nav-link"}>非洲</a>
+						<Link to="/land/africa" data-type="africa" activeClassName="on"  className="nav-link">非洲</Link>
 					</li>
 					<li className="nav-item">
-						<a data-type="TAB_OCEANIA" className={this.props.tabType === "TAB_OCEANIA" ? "nav-link on" : "nav-link"}>大洋洲</a>
+						<Link to="/land/oceania" data-type="oceania" activeClassName="on"  className="nav-link">大洋洲</Link>
 					</li>
 				</ul>
 			</div>
@@ -45,7 +45,7 @@ class PublicNav extends Component{
 
 PublicNav.propTypes = {
 	tabType:  PropTypes.string.isRequired,
-	onShowByType: PropTypes.func.isRequired
+	setTabType: PropTypes.func.isRequired
 }
 
 export default PublicNav

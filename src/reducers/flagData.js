@@ -7,6 +7,7 @@ import { TAB_ALL, SET_TAB_TYPE} from "../constants/TabTypes"
 const initialState = {
 	tabType: TAB_ALL,
 	searchNameValue: "",
+	showFlags: [],
 	flags: [
 		{ id: 0,  name: "Japan", 	chineseName: "日本",	continent: "TAB_ASIA" },
 		{ id: 1,  name: "Yemen", 	chineseName: "也门",	continent: "TAB_ASIA"  },
@@ -32,17 +33,42 @@ const initialState = {
 	]
 }
 
+const getSearchResult = (flags, searchValue) =>{
+
+	searchValue = searchValue.trim()
+
+	let _value = [], reg = new RegExp('\^' + searchValue,'i')
+	
+	let equalValue = flags.filter((flag) => {
+
+		// if chinese character
+		var originValue = /^[\u4e00-\u9fa5]{0,}$/g.test(searchValue) ? flag.chineseName : flag.name
+
+		if(originValue !== searchValue && reg.test(originValue)){ 
+			_value.push(flag) 
+		}
+
+		return originValue === searchValue
+
+	})
+
+	return equalValue.concat(_value)
+
+}
+
 export default function flagData(state = initialState, action){
 	switch(action.type){
 		case SET_TAB_TYPE:
 			return Object.assign({}, state, { 
 				tabType: action.tab, 
-				searchNameValue: '' 
+				searchNameValue: '',
+				showFlags: action.tab === TAB_ALL ? state.flags : state.flags.filter( (flag) => flag.continent === action.tab )
 			})
 		case SET_SEARCH_NAME_VALUE:
 			return Object.assign({}, state, { 
-				tabType: '', //or TAB_ALL,
-				searchNameValue: action.nameValue 
+				tabType: '',
+				searchNameValue: action.nameValue,
+				showFlags: getSearchResult(state.flags, action.nameValue)
 			})
 		case ADD_FLAG:
 			return Object.assign({}, state, { 

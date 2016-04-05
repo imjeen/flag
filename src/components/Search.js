@@ -3,19 +3,22 @@ import React, {Component, PropTypes} from "react"
 
 import FlagItem from "../components/FlagItem"
 
-class FlagList extends Component {
+class Search extends Component {
 
 	constructor(props){
 		super(props);
 		this.state = {
-			id: 'all',
+			keyword: '',
 			flags: []
 		}
 	}
 
 	handleState(){
+	 let { query } = this.props.location
+	 let keyword = query ? query.q : ''
+		// this.props.doSearch(keyword)
 		this.setState({
-			id: this.props.params.id,
+			q: keyword,
 			flags: this.props.flags
 		})
 	}
@@ -29,13 +32,18 @@ class FlagList extends Component {
 	}
 
 	componentDidUpdate(prevProps, prevState){
-		if(prevState.id !== this.props.params.id ){
+		if(prevState.q !== this.props.location.query.q){
 			this.handleState();
 		}
 	}
 
 	render(){
 		return (<main className="main-body">
+			{(function(value){
+				if(value !== ''){
+					return <p style={{'textAlign':'center'}}> you're searching: <strong>{value}</strong></p>
+				}
+			}(this.props.searchValue))}
 			<ul className={"flag-list grid grid--center"}>
 				{
 					this.state.flags.map( (item,key) => 
@@ -48,9 +56,10 @@ class FlagList extends Component {
 
 }
 
-FlagList.propTypes = {
+Search.propTypes = {
 	flags: PropTypes.array.isRequired,
-	searchValue: PropTypes.string
+	doSearch: PropTypes.func,
+	searchValue: PropTypes.string.isRequired
 }
 
-export default FlagList
+export default Search
